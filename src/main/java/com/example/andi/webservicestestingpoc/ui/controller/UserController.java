@@ -6,6 +6,8 @@ import com.example.andi.webservicestestingpoc.shared.dto.AddressDto;
 import com.example.andi.webservicestestingpoc.shared.dto.UserDto;
 import com.example.andi.webservicestestingpoc.ui.model.request.UserDetailsRequestModel;
 import com.example.andi.webservicestestingpoc.ui.model.response.*;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.BeanUtils;
@@ -27,6 +29,9 @@ public class UserController {
     @Autowired
     AddressService addressService;
 
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "authorization", value = "${userController.authorizationHeader.description}", paramType = "header")
+    })
     @GetMapping(path = "/{id}",
                 produces = {
                         MediaType.APPLICATION_JSON_VALUE,
@@ -85,6 +90,9 @@ public class UserController {
         return returnValue;
     }
 
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "authorization", value = "${userController.authorizationHeader.description}", paramType = "header")
+    })
     @DeleteMapping(path = "/{userId}",
                     produces = {
                             MediaType.APPLICATION_JSON_VALUE,
@@ -101,6 +109,9 @@ public class UserController {
         return returnValue;
     }
 
+    @ApiImplicitParams({
+           @ApiImplicitParam(name = "authorization", value = "${userController.authorizationHeader.description}", paramType = "header")
+    })
     @GetMapping(
             produces = {
                     MediaType.APPLICATION_JSON_VALUE,
@@ -121,6 +132,9 @@ public class UserController {
         return returnValue;
     }
 
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "authorization", value = "${userController.authorizationHeader.description}", paramType = "header")
+    })
     @GetMapping(path = "/{userId}/addresses",
             produces = {
                     MediaType.APPLICATION_JSON_VALUE,
