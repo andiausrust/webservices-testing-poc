@@ -5,8 +5,10 @@ import com.example.andi.webservicestestingpoc.io.entity.UserEntity;
 import com.example.andi.webservicestestingpoc.io.repository.UserRepository;
 import com.example.andi.webservicestestingpoc.service.UserService;
 import com.example.andi.webservicestestingpoc.shared.Utils;
+import com.example.andi.webservicestestingpoc.shared.dto.AddressDto;
 import com.example.andi.webservicestestingpoc.shared.dto.UserDto;
 import com.example.andi.webservicestestingpoc.ui.model.response.ErrorMessages;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,16 +40,23 @@ public class UserServiceImpl implements UserService {
 
         if(userRepository.findByEmail(user.getEmail()) != null) throw new RuntimeException("Record already exists");
 
-        UserEntity userEntity = new UserEntity();
-        BeanUtils.copyProperties(user, userEntity);
+        for (int i = 0; i < user.getAddresses().size(); i++) {
+            AddressDto address = user.getAddresses().get(i);
+            address.setUserDetails(user);
+            address.setAddressId(utils.generateUUID());
+            user.getAddresses().set(i, address);
+        }
+
+        ModelMapper modelMapper = new ModelMapper();
+
+        UserEntity userEntity = modelMapper.map(user, UserEntity.class);
 
         userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userEntity.setUserId(utils.generateUUID());
 
         UserEntity storedUser = userRepository.save(userEntity);
 
-        UserDto returnValue = new UserDto();
-        BeanUtils.copyProperties(storedUser, returnValue);
+        UserDto returnValue = modelMapper.map(storedUser, UserDto.class);
 
         return returnValue;
     }
@@ -113,6 +122,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> getUsers(int page, int limit) {
+
+        if(page > 0) page -=1;
+
         List<UserDto> returnValue = new ArrayList<>();
 
         Pageable pageableRequest = PageRequest.of(page, limit);

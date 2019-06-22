@@ -8,7 +8,8 @@ import java.util.UUID;
 public class Utils {
 
     public String generateUUID(){
-        return UUID.randomUUID().toString();
+        String uUID =  UUID.randomUUID().toString();
+        return uUID.substring(0, 30);
     }
 
 }

@@ -2,9 +2,16 @@ package com.example.andi.webservicestestingpoc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class WebservicesTestingPocApplication {
+public class WebservicesTestingPocApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(WebservicesTestingPocApplication.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(WebservicesTestingPocApplication.class, args);
