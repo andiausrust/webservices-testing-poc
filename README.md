@@ -1,4 +1,4 @@
-# webservices-testing-poc
+# Auto generated interactive Swagger Docu
 
 ## Configuration for interactive Swagger Documentation
 
@@ -11,9 +11,9 @@
 
 ## Controller example config for interactive Swagger support
 
-https://github.com/andiausrust/webservices-testing-poc/blob/master/controllerSwaggerConfig.png
+![swagger-config-controller](https://github.com/andiausrust/webservices-testing-poc/blob/master/controllerSwaggerConfig.png)
 
 
 ## Swagger document generated from controller configurated for Swagger
 
-https://github.com/andiausrust/webservices-testing-poc/blob/master/swaggerDocumentFromControllerConfig.png
+![swaggerDocu-config-controller](https://github.com/andiausrust/webservices-testing-poc/blob/master/swaggerDocumentFromControllerConfig.png)
