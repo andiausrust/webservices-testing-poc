@@ -8,6 +8,7 @@ import com.example.andi.webservicestestingpoc.ui.model.request.UserDetailsReques
 import com.example.andi.webservicestestingpoc.ui.model.response.*;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.BeanUtils;
@@ -29,6 +30,8 @@ public class UserController {
     @Autowired
     AddressService addressService;
 
+    @ApiOperation(value = "Get User Details Web Service Endpoint",
+                    notes = "This Webservice Endpoint returns User Details. User public user id in URL Path. For example:/users/öaslkdfj8s9d")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "authorization", value = "${userController.authorizationHeader.description}", paramType = "header")
     })
