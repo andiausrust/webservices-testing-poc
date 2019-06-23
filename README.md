@@ -15,3 +15,5 @@ https://github.com/andiausrust/webservices-testing-poc/blob/master/controllerSwa
 
 
 ## Swagger document generated from controller configurated for Swagger
+
+https://github.com/andiausrust/webservices-testing-poc/blob/master/swaggerDocumentFromControllerConfig.png
