@@ -9,7 +9,7 @@
 ![swagger-generated](https://github.com/andiausrust/webservices-testing-poc/blob/master/swaggerGeneratedDocumentation.png)
 
 
-## Controller example config for interactive Swagger support
+## Controller config example for interactive Swagger support
 ### defined in application.properties file:
 authenticationController.theFakeLogin.Value = User Login  
 authenticationController.theFakeLogin.Notes = This shows how to add a more verbose description to an endpoint" 
