@@ -5,7 +5,7 @@
 ![swagger-config](https://github.com/andiausrust/webservices-testing-poc/blob/master/Screenshot%20SwaggerConfig.png)
 
 
-## Interactive generated document in swagger
+## Interactive generated document in swagger (based on configuration above)
 ![swagger-generated](https://github.com/andiausrust/webservices-testing-poc/blob/master/swaggerGeneratedDocumentation.png)
 
 
@@ -17,6 +17,6 @@ authenticationController.theFakeLogin.Notes = This shows how to add a more verbo
 ![swagger-config-controller](https://github.com/andiausrust/webservices-testing-poc/blob/master/controllerSwaggerConfig.png)
 
 
-## Swagger document generated from controller configurated for Swagger
+## Swagger document generated from controller configurated for Swagger (based on controller above)
 
 ![swaggerDocu-config-controller](https://github.com/andiausrust/webservices-testing-poc/blob/master/swaggerDocumentFromControllerConfig.png)
